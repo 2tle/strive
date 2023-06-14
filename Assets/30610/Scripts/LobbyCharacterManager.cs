@@ -11,9 +11,10 @@ public class LobbyCharacterManager : MonoBehaviour
     public Button infoBtn;
     public Text infoText;
     public GameObject[] playerPrefabs;
+    public static GameObject[] playerStaticPrefabs;
     public GameObject player;
     public string[] playersDesc;
-    private int currentPlayers = 0;
+    public static int currentPlayers = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,8 @@ public class LobbyCharacterManager : MonoBehaviour
 
         infoText.text = "";
         infoText.gameObject.SetActive(false);
+
+        playerStaticPrefabs = playerPrefabs;
 
         leftBtn.onClick.AddListener(onLeftBtnClicked);
         rightBtn.onClick.AddListener(onRightBtnClicked);
@@ -69,4 +72,10 @@ public class LobbyCharacterManager : MonoBehaviour
         player.transform.position = lbSpawnPos;
         infoText.gameObject.SetActive(false);
     }
+
+    public static GameObject getPlayerCharacterPrefab()
+    {
+        return playerStaticPrefabs[currentPlayers];
+    }
+
 }
