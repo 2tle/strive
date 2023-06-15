@@ -7,22 +7,25 @@ public class PlayerController : MonoBehaviour
     float playerSpeed = 10;
     int jumpCount;
     bool isGraund;
-    float jumpPower;
+    public float jumpPower;
 
     float x;
     float z;
+
+    Rigidbody rigid;
 
 
 
     void Start()
     {
-        
+        rigid = GetComponent<Rigidbody>();
     }
 
     
     void Update()
     {
         Move();
+        Jump();
     }
 
     private void Move()
@@ -35,6 +38,10 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        //rigidbody.AddForce(Vector3.up * jumpPower * Time.deltaTime);
+        if(Input.GetKey(KeyCode.Space))
+        {
+            rigid.AddForce(Vector3.up * jumpPower * Time.deltaTime, ForceMode.Impulse);
+        }
+        
     }
 }
