@@ -23,7 +23,7 @@ public class LobbyCharacterManager : MonoBehaviour
         infoBtn = GameObject.Find("CharInfoButton").GetComponent<Button>();
         //infoText = GameObject.Find("CharInfoText").GetComponent<Text>();
         //player = GameObject.Find("PlayerCharacter").GetComponent<GameObject>();
-
+        spawnChar(currentPlayers);
         infoText.text = "";
         infoText.gameObject.SetActive(false);
 
@@ -69,6 +69,7 @@ public class LobbyCharacterManager : MonoBehaviour
     private void spawnChar(int pos) {
         Destroy(player);
         player = Instantiate(playerPrefabs[pos]);
+        player.transform.localScale = new Vector3(100f, 100f, 100f);
         player.transform.position = lbSpawnPos;
         infoText.gameObject.SetActive(false);
     }
