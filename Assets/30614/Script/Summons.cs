@@ -20,7 +20,7 @@ public class Summons : MonoBehaviour
     {
         Pos1 = StartPos.transform.position;
         Pos2 = EndPos.transform.position;
-        StartCoroutine("Shot");
+        StartCoroutine("Rain");
     }
 
     
