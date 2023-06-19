@@ -31,6 +31,7 @@ public class LobbyQueueManager : MonoBehaviour
 
     private void onTutorialBtnClicked() {
         SceneManager.LoadScene("Map 3");
+        //SceneManager.LoadScene("Stage11");
     }
 
     //private GameObject getGameCharacterPrefabs() {
