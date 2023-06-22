@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     float playerSpeed = 10;
-    int jumpCount;
+    public int jumpCount = 0;
     bool isGraund;
     public float jumpPower;
 
@@ -38,10 +38,28 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if(Input.GetKey(KeyCode.Space))
+        Debug.Log("jump");
+        if(Input.GetKey(KeyCode.Space) && jumpCount == 0)
         {
-            rigid.AddForce(Vector3.up * jumpPower * Time.deltaTime, ForceMode.Impulse);
+            Debug.Log("if");
+            //rigid.velocity = Vector3.zero;
+            rigid.AddForce(Vector3.up * jumpPower);
+            jumpCount++;
         }
-        
+        else if(Input.GetKey(KeyCode.Space) && jumpCount == 1)
+        {
+            rigid.velocity = Vector3.zero;
+            rigid.AddForce(Vector3.up * jumpPower);
+            jumpCount++;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("´ê¾Ò¾î");
+        if(collision.gameObject.tag == "Floor")
+        {
+            jumpCount = 0;
+        }
     }
 }
