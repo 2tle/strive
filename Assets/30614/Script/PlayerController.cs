@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         Debug.Log("jump");
-        if(Input.GetKey(KeyCode.Space) && jumpCount == 0)
+        if(Input.GetKeyUp(KeyCode.Space) && jumpCount == 0)
         {
             Debug.Log("if");
             //rigid.velocity = Vector3.zero;

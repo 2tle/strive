@@ -33,8 +33,9 @@ public class JinJa : MonoBehaviour
     
     void Update()
     {
-        this.gameObject.transform.Rotate(new Vector3(x * Speed * Time.deltaTime, 0, z * Speed * Time.deltaTime));
+        // this.gameObject.transform.Rotate(new Vector3.Lerp((x * Speed * Time.deltaTime, 0, z * Speed * Time.deltaTime), (x * Speed * Time.deltaTime, 0, z * Speed * Time.deltaTime), Time.deltaTime));
 
+        this.gameObject.transform.Rotate(new Vector3(x * Speed * Time.deltaTime, 0, z * Speed * Time.deltaTime));
         if (RoundAngle2(this.gameObject.transform.localEulerAngles.x) >= Max || RoundAngle2(this.gameObject.transform.localEulerAngles.z) >= Max) // Max에 도착했을때
         {
             x = -x;

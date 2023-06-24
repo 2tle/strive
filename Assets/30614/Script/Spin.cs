@@ -22,9 +22,20 @@ public class Spin : MonoBehaviour
 
     void Spinning()
     {
-        
+        switch(dir)
+        {
+            case Direction.X:
+                this.gameObject.transform.Rotate(new Vector3(spinDirection * spinSpeed * Time.deltaTime, 0, 0));
+                break;
+            case Direction.Y:
+                this.gameObject.transform.Rotate(new Vector3(0, spinDirection * spinSpeed * Time.deltaTime, 0));
+                break;
+            case Direction.Z:
+                this.gameObject.transform.Rotate(new Vector3(0, 0, spinDirection * spinSpeed * Time.deltaTime));
+                break;
+        }
 
-        this.gameObject.transform.Rotate(new Vector3(0, spinDirection * spinSpeed * Time.deltaTime, 0));
+        
 
 
     }
@@ -33,7 +44,8 @@ public class Spin : MonoBehaviour
     public enum Direction
     {
         None = 0,
-        Left = 1,
-        Right = -1,
+        X = 1,
+        Y = 2,
+        Z = 3,
     }
 }
