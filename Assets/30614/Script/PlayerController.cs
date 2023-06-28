@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("jump");
+        //Debug.Log("jump");
         if(Input.GetKeyUp(KeyCode.Space) && jumpCount == 0)
         {
             Debug.Log("if");

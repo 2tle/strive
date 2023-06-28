@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Summons : MonoBehaviour
 {
+    public style sy;
+
     public GameObject StartPos;
     public GameObject EndPos;
     public float YPos;
@@ -18,9 +20,20 @@ public class Summons : MonoBehaviour
 
     void Start()
     {
-        Pos1 = StartPos.transform.position;
-        Pos2 = EndPos.transform.position;
-        StartCoroutine("Rain");
+        switch(sy)
+        {
+            case style.rain:
+                Pos1 = StartPos.transform.position;
+                Pos2 = EndPos.transform.position;
+                StartCoroutine("Rain");
+                break;
+            case style.shot:
+                Pos1 = StartPos.transform.position;
+                StartCoroutine("Shot"); 
+                break;
+        }
+
+        
     }
 
     
@@ -53,4 +66,11 @@ public class Summons : MonoBehaviour
         yield return new WaitForSeconds(5);
         StartCoroutine("Shot");
     }
+
+    public enum style
+    {
+        None = 0,
+        rain = 1,
+        shot = 2,
+    }    
 }

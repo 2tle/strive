@@ -20,7 +20,7 @@ public class Destory : MonoBehaviour
     {
         if(rain.GetComponent<Summons>().bullet == true)
         {
-            this.gameObject.transform.Translate(Vector3.forward * 1f);
+            this.gameObject.transform.Translate(Vector3.forward * 0.5f);
         }
 
 
