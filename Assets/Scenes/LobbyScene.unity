@@ -173,10 +173,12 @@ MonoBehaviour:
   infoBtn: {fileID: 640730350}
   infoText: {fileID: 674056705}
   playerPrefabs:
-  - {fileID: 7880348160727887558, guid: 82bd65e9fff5ed7419b49f8bef8a8322, type: 3}
-  player: {fileID: 1858891842}
+  - {fileID: 5786266926572143121, guid: ba715c7adc1afdf4889465257f086b30, type: 3}
+  - {fileID: 4562205841700019595, guid: e8f3e892724dd8a4e9d24438de2753df, type: 3}
+  player: {fileID: 5786266926572143121, guid: ba715c7adc1afdf4889465257f086b30, type: 3}
   playersDesc:
-  - normal
+  - Yellow
+  - Blue
 --- !u!1 &72517204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,11 +2031,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1858891842 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9056475230249993478, guid: 4750e6226d7ac438eb470e6ca5f79f84, type: 3}
-  m_PrefabInstance: {fileID: 9056475231838844228}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1858934457
 GameObject:
   m_ObjectHideFlags: 0
