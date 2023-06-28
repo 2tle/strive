@@ -13,8 +13,7 @@ public class PlayerController : MonoBehaviour
     float z;
 
     Rigidbody rigid;
-
-
+    public Animator animator;
 
     void Start()
     {
@@ -26,12 +25,30 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+
+        if(Input.GetKeyDown(KeyCode.R)) 
+        {
+            animator.SetTrigger("dance");
+        }
+        else if(Input.GetKeyUp(KeyCode.E))
+        {
+            animator.SetTrigger("exit");
+        }
     }
 
     private void Move()
     {
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
+
+        if(x != 0 || z != 0) {
+            animator.SetBool("run", true);
+        }
+        else
+        {
+            animator.SetBool("run", false);
+        }
+
         transform.Translate(x * playerSpeed *Time.deltaTime, 0, 0);
         transform.Translate(0, 0, z * playerSpeed * Time.deltaTime);
     }
@@ -61,5 +78,16 @@ public class PlayerController : MonoBehaviour
         {
             jumpCount = 0;
         }
+
+        if(collision.gameObject.tag == "Jnag")
+        {
+            this.gameObject.transform.position = new Vector3(
+                PlayerPrefs.GetFloat("CP_X"),
+                PlayerPrefs.GetFloat("CP_Y"),
+                PlayerPrefs.GetFloat("CP_Z")
+            );
+        }
     }
+
+    
 }
