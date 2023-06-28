@@ -36,7 +36,7 @@ public class Summons : MonoBehaviour
             case style.tong:
                 Pos1 = StartPos.transform.position;
                 Pos2 = EndPos.transform.position;
-                rot = Quaternion.Euler(new Vector3(90, 0, 0));
+                rot = Quaternion.Euler(new Vector3(90, 0, 90));
                 StartCoroutine("Tong");
                 break;
         }
