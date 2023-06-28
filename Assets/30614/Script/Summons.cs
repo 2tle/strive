@@ -14,6 +14,8 @@ public class Summons : MonoBehaviour
 
     public bool bullet;
 
+    Quaternion rot;
+
     Vector3[] RandPos = new Vector3[3];
     Vector3 Pos1;
     Vector3 Pos2;
@@ -30,6 +32,12 @@ public class Summons : MonoBehaviour
             case style.shot:
                 Pos1 = StartPos.transform.position;
                 StartCoroutine("Shot"); 
+                break;
+            case style.tong:
+                Pos1 = StartPos.transform.position;
+                Pos2 = EndPos.transform.position;
+                rot = Quaternion.Euler(new Vector3(90, 0, 0));
+                StartCoroutine("Tong");
                 break;
         }
 
@@ -51,7 +59,7 @@ public class Summons : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            var obj = Instantiate(BeSummoned, RandPos[i], this.gameObject.transform.rotation);
+            var obj = Instantiate(BeSummoned, RandPos[i], rot);
             obj.transform.localScale = Vector3.one * Random.Range(1, 10);
         }
 
@@ -63,14 +71,23 @@ public class Summons : MonoBehaviour
     {
         var obj = Instantiate(BeSummoned, Pos1, this.gameObject.transform.rotation);
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
         StartCoroutine("Shot");
     }
+    
+    IEnumerator Tong()
+    {
+        var obj = Instantiate(BeSummoned, Pos1, rot); 
+        yield return new WaitForSeconds(3);
 
+
+        StartCoroutine("Tong");
+    }
     public enum style
     {
         None = 0,
         rain = 1,
         shot = 2,
+        tong = 3,
     }    
 }

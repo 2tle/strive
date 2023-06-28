@@ -12,6 +12,7 @@ public class Destory : MonoBehaviour
         if (rain.GetComponent<Summons>().bullet == true)
         {
             this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            StartCoroutine("del");
         }
     }
 
@@ -29,5 +30,13 @@ public class Destory : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+    IEnumerator del()
+    {
+        
+        yield return new WaitForSeconds(3);
+
+        Destroy(this.gameObject);
+
     }
 }
